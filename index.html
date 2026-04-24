@@ -11,6 +11,7 @@
             --side: #2c3e50; 
             --blue: #3498db; 
             --orange: #e67e22;
+            --green: #27ae60;
             --text: #333; 
         }
         
@@ -22,53 +23,57 @@
         nav h1 { font-size: 1.3rem; margin-bottom: 5px; }
         nav .status { font-size: 0.8rem; color: #95a5a6; margin-bottom: 20px; border-bottom: 1px solid #555; padding-bottom: 10px; }
         nav ul { list-style: none; padding: 0; }
-        nav ul li { margin: 15px 0; position: relative; }
+        nav ul li { margin: 15px 0; }
         nav ul li a { color: #bdc3c7; text-decoration: none; display: flex; align-items: center; transition: 0.3s; cursor: pointer; }
         nav ul li a:hover { color: white; }
         nav ul li a i { margin-right: 12px; width: 20px; text-align: center; }
         
-        /* Menu déroulant BTS SIO */
-        .dropdown-content { display: none; background: #34495e; padding: 5px 0 5px 35px; border-radius: 4px; list-style: none; margin-top: 5px; }
-        .dropdown:hover .dropdown-content { display: block; }
-        .dropdown-content li a { font-size: 0.9rem; padding: 5px 0; color: #bdc3c7; }
-        .dropdown-content li a:hover { color: white; }
-
         /* Contenu principal */
         main { margin-left: 300px; padding: 40px; width: calc(100% - 340px); }
-        section { margin-bottom: 80px; scroll-margin-top: 50px; } 
+        section { margin-bottom: 80px; scroll-margin-top: 60px; } 
         
-        h2 { border-left: 5px solid var(--blue); padding-left: 15px; color: var(--side); text-transform: uppercase; font-size: 1.4rem; }
+        h2 { border-left: 5px solid var(--blue); padding-left: 15px; color: var(--side); text-transform: uppercase; font-size: 1.4rem; margin-bottom: 25px; }
         .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-top: 15px; }
         
-        .option-box { border-top: 4px solid var(--blue); }
+        /* Styles options SIO */
+        .option-box { border-top: 5px solid var(--blue); }
         .slam-box { border-top-color: var(--orange); }
-        .slam-box h3 { color: var(--orange); }
-        .option-box h3 { color: var(--blue); margin-top: 0; }
+        .option-box h3 { margin-top: 0; font-size: 1.3rem; }
+        .option-box p { line-height: 1.6; }
 
-        /* Style Veille */
-        .veille-topic { background: var(--side); color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
-        .veille-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; }
+        /* Grille de compétences */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .skill-item h3 { font-size: 1.1rem; color: var(--blue); border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .skill-list { list-style: none; padding: 0; font-size: 0.9rem; }
+        .skill-list li { margin: 8px 0; display: flex; align-items: center; }
+        .skill-list li i { margin-right: 8px; color: var(--green); font-size: 0.8rem; }
+
+        /* Boutons */
+        .btn { padding: 10px 18px; border-radius: 5px; text-decoration: none; font-size: 0.9rem; font-weight: bold; transition: 0.3s; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+        .btn-blue { background: var(--blue); color: white; border: none; }
+        .btn-outline { border: 1px solid var(--blue); color: var(--blue); }
+        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
+
+        /* Veille */
+        .veille-header { background: var(--side); color: white; padding: 25px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
         th, td { text-align: left; padding: 12px; border-bottom: 1px solid #eee; font-size: 0.9rem; }
-        th { background: #f8f9fa; color: var(--side); }
+        th { background: #f8f9fa; }
     </style>
 </head>
 <body>
 
 <nav>
     <h1>Mathéo Brillant</h1>
-    <div class="status">Étudiant BTS SIO SISR (2ème année)</div>
+    <div class="status">Étudiant BTS SIO SISR</div>
     <ul>
         <li><a href="#accueil"><i class="fas fa-user"></i> Accueil</a></li>
-        <li class="dropdown">
-            <a href="javascript:void(0)"><i class="fas fa-graduation-cap"></i> BTS SIO <i class="fas fa-chevron-down" style="margin-left: auto; font-size: 0.7rem;"></i></a>
-            <ul class="dropdown-content">
-                <li><a href="#sisr">Option SISR</a></li>
-                <li><a href="#slam">Option SLAM</a></li>
-            </ul>
-        </li>
-        <li><a href="#veille"><i class="fas fa-rss"></i> Veille Technologique</a></li>
-        <li><a href="#projets"><i class="fas fa-project-diagram"></i> Réalisations</a></li>
+        <li><a href="#sisr"><i class="fas fa-network-wired"></i> Option SISR</a></li>
+        <li><a href="#slam"><i class="fas fa-code"></i> Option SLAM</a></li>
+        <li><a href="#stages"><i class="fas fa-briefcase"></i> Mes Stages</a></li>
+        <li><a href="#competences"><i class="fas fa-tools"></i> Compétences</a></li>
+        <li><a href="#veille"><i class="fas fa-rss"></i> Veille Techno</a></li>
+        <li><a href="#certifs"><i class="fas fa-certificate"></i> Certifications</a></li>
     </ul>
 </nav>
 
@@ -76,20 +81,22 @@
     <section id="accueil">
         <h2>À propos</h2>
         <div class="card">
-            <p>Bonjour ! Je m'appelle <strong>Mathéo Brillant</strong>. Étudiant en seconde année de BTS SIO option SISR, j'ai réalisé deux stages en milieu professionnel pour valider mes compétences techniques.</p>
-            <p>Ce portfolio présente mon parcours, ma veille technologique et mes travaux pratiques réalisés durant ma formation.</p>
+            <p>Bonjour ! Je m'appelle <strong>Mathéo Brillant</strong>. Étudiant en seconde année de BTS SIO (Services Informatiques aux Organisations), spécialité <strong>SISR</strong>.</p>
+            <p>Mon parcours est tourné vers l'administration système, la gestion des réseaux et la cybersécurité. Ce portfolio rassemble mes expériences professionnelles, mes compétences et mes recherches technologiques.</p>
         </div>
     </section>
 
     <section id="sisr">
         <h2>L'option SISR</h2>
         <div class="card option-box">
-            <h3>Solutions d'Infrastructure, Systèmes et Réseaux</h3>
-            <p>Le titulaire de l'option SISR est formé pour installer, administrer et sécuriser les équipements informatiques et les réseaux d'une organisation.</p>
+            <h3 style="color: var(--blue);">Solutions d'Infrastructure, Systèmes et Réseaux</h3>
+            <p>L'option <strong>SISR</strong> forme des spécialistes capables de répondre aux besoins des organisations en matière de gestion d'infrastructures réseaux et systèmes. Le titulaire de ce diplôme est le garant du bon fonctionnement, de la disponibilité et de la sécurité des ressources informatiques.</p>
+            <p><strong>Domaines d'intervention :</strong></p>
             <ul>
-                <li>Administration de serveurs (Windows Server, Linux).</li>
-                <li>Configuration de services réseaux et équipements (VLAN, commutateurs, routeurs).</li>
-                <li>Gestion de la cybersécurité (VPN, Pare-feu, audits).</li>
+                <li><strong>Administration Système :</strong> Installation, configuration et maintenance de serveurs Windows et Linux (Services AD, DNS, DHCP, Web).</li>
+                <li><strong>Infrastructure Réseau :</strong> Mise en œuvre et gestion d'équipements actifs (Switchs VLAN, Routeurs, Bornes Wi-Fi).</li>
+                <li><strong>Cybersécurité :</strong> Sécurisation des flux, déploiement de solutions de filtrage (Pare-feu), gestion des accès distants (VPN) et protection des données.</li>
+                <li><strong>Virtualisation :</strong> Gestion d'environnements virtualisés pour optimiser les ressources matérielles (VMware, Proxmox).</li>
             </ul>
         </div>
     </section>
@@ -97,85 +104,122 @@
     <section id="slam">
         <h2>L'option SLAM</h2>
         <div class="card option-box slam-box">
-            <h3>Solutions Logicielles et Applications Métier</h3>
-            <p>Le titulaire de l'option SLAM intervient dans la conception, le développement et la maintenance de solutions applicatives.</p>
+            <h3 style="color: var(--orange);">Solutions Logicielles et Applications Métier</h3>
+            <p>L'option <strong>SLAM</strong> est orientée vers la conception et la réalisation de solutions applicatives. Elle forme des techniciens capables de gérer l'intégralité du cycle de vie d'un logiciel, de l'analyse des besoins à la maintenance évolutive.</p>
+            <p><strong>Domaines d'intervention :</strong></p>
             <ul>
-                <li>Développement d'applications mobiles et web.</li>
-                <li>Conception et gestion de bases de données (SQL).</li>
-                <li>Analyse des besoins et gestion de projet logiciel.</li>
+                <li><strong>Développement :</strong> Maîtrise des langages de programmation (Java, C#, Python, PHP) et des frameworks modernes.</li>
+                <li><strong>Web & Mobile :</strong> Création d'interfaces utilisateurs ergonomiques et d'applications connectées.</li>
+                <li><strong>Bases de données :</strong> Modélisation de données (MCD/MLD) et manipulation via le langage SQL.</li>
+                <li><strong>Gestion de projet :</strong> Application des méthodes Agiles et utilisation d'outils de versioning (Git) pour le travail collaboratif.</li>
             </ul>
+        </div>
+    </section>
+
+    <section id="stages">
+        <h2>Mes Stages</h2>
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                <div>
+                    <h3 style="margin:0">Stage de 2ème Année (SISR)</h3>
+                    <p style="color:#666;">Période : 2025-2026</p>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <a href="certificat-stage-2.pdf" class="btn btn-outline"><i class="fas fa-file-contract"></i> Certificat</a>
+                    <a href="compte-rendu-2.pdf" class="btn btn-blue"><i class="fas fa-file-alt"></i> Compte rendu</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                <div>
+                    <h3 style="margin:0">Stage de 1ère Année (SISR)</h3>
+                    <p style="color:#666;">Période : 2024-2025</p>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <a href="certificat-stage-1.pdf" class="btn btn-outline"><i class="fas fa-file-contract"></i> Certificat</a>
+                    <a href="compte-rendu-1.pdf" class="btn btn-blue"><i class="fas fa-file-alt"></i> Compte rendu</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="competences">
+        <h2>Compétences Techniques</h2>
+        <div class="card">
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h3><i class="fas fa-desktop"></i> Système</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Windows / Windows Server</li>
+                        <li><i class="fas fa-check"></i> Debian / Ubuntu</li>
+                        <li><i class="fas fa-check"></i> VMware / VirtualBox / Proxmox</li>
+                    </ul>
+                </div>
+                <div class="skill-item">
+                    <h3><i class="fas fa-network-wired"></i> Réseau</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Cisco Packet Tracer</li>
+                        <li><i class="fas fa-check"></i> Wireshark</li>
+                        <li><i class="fas fa-check"></i> Apache (Serveur Web)</li>
+                    </ul>
+                </div>
+                <div class="skill-item">
+                    <h3><i class="fas fa-shield-alt"></i> Sécurité</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> pfSense (Pare-feu)</li>
+                    </ul>
+                </div>
+                <div class="skill-item">
+                    <h3><i class="fas fa-toolbox"></i> Outils</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> GLPI / VS Code</li>
+                        <li><i class="fas fa-check"></i> GitHub / GitLab</li>
+                        <li><i class="fas fa-check"></i> PowerShell</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="veille">
         <h2>Veille Technologique</h2>
-        <div class="veille-topic">
-            <h3 style="margin:0">Thème : Nouveaux protocoles et standards de communication</h3>
-            <p style="font-size: 0.9rem; opacity: 0.9;">Analyse de l'évolution des normes réseaux LAN et WAN pour la performance et la sécurité.</p>
-            <a href="Veille_Matheo_Brillant.pdf" download="Veille_Matheo_Brillant.pdf" target="_blank">
-               <i class="fas fa-file-pdf"></i> Télécharger ma Veille Technologique
+        <div class="veille-header">
+            <div>
+                <h3 style="margin:0">Thème : Nouveaux protocoles et standards de communication</h3>
+                <p style="font-size: 0.9rem; opacity: 0.9; margin: 5px 0 0 0;">Analyse des évolutions LAN/WAN, Wi-Fi 7 et sécurité post-quantique.</p>
+            </div>
+            <a href="Mathéo BRILLANT - Veille Informationnelle-1.pdf" download class="btn btn-blue" style="background: white; color: var(--side);">
+                <i class="fas fa-download"></i> Télécharger le document
             </a>
         </div>
-
         <div class="card">
-            <h3>Méthodologie</h3>
-            <div class="veille-grid">
-                <div>
-                    <strong><i class="fas fa-bolt"></i> Méthode PUSH</strong>
-                    <ul style="font-size: 0.85rem;">
-                        <li>Google Alerts : "Standard Wi-Fi 7", "NIST PQC".</li>
-                        <li>Alertes de sécurité Cert-FR (ANSSI).</li>
-                    </ul>
-                </div>
-                <div>
-                    <strong><i class="fas fa-hand-pointer"></i> Méthode PULL</strong>
-                    <ul style="font-size: 0.85rem;">
-                        <li>Agrégateur Feedly : Cisco, Cloudflare, ZDNet.</li>
-                        <li>Consultation IEEE ComSoc et statistiques W3Techs.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <h3>Synthèse de Veille (2025-2026)</h3>
             <table>
                 <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Sujet</th>
-                        <th>Analyse & Impact SISR</th>
-                    </tr>
+                    <tr><th>Date</th><th>Sujet / Actualité</th><th>Impact SISR</th></tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Oct. 2025</td>
-                        <td>SMB over QUIC</td>
-                        <td>Simplification du télétravail : accès sécurisé aux fichiers via TLS 1.3 sans tunnel VPN traditionnel.</td>
-                    </tr>
-                    <tr>
-                        <td>Janv. 2026</td>
-                        <td>OpenSSH 10.1</td>
-                        <td>Implémentation de clés hybrides post-quantiques pour protéger les accès distants.</td>
-                    </tr>
-                    <tr>
-                        <td>Mars 2026</td>
-                        <td>Gamme Cisco Wi-Fi 7</td>
-                        <td>Nécessité de mise à jour des switchs vers le standard PoE++ (60W) pour alimenter ces bornes.</td>
-                    </tr>
+                    <tr><td>Oct. 2025</td><td>SMB over QUIC (Windows Server 2025)</td><td>Sécurisation du partage de fichiers sans VPN.</td></tr>
+                    <tr><td>Janv. 2026</td><td>Standard OpenSSH 10.1</td><td>Protection contre les futures menaces quantiques.</td></tr>
+                    <tr><td>Mars 2026</td><td>Bornes Cisco Wi-Fi 7 Catalyst</td><td>Nécessité de switchs PoE++ (60W) en entreprise.</td></tr>
                 </tbody>
             </table>
         </div>
     </section>
 
-    <section id="projets">
-        <h2>Réalisations Professionnelles</h2>
+    <section id="certifs">
+        <h2>Certifications</h2>
         <div class="card">
-            <p><em>Cette section sera complétée par les fiches descriptives de mes deux stages en entreprise.</em></p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h3 style="margin:0">PIX</h3>
+                    <p style="color:#666;">Compétences numériques certifiées</p>
+                </div>
+                <a href="certification-pix.pdf" class="btn btn-blue"><i class="fas fa-download"></i> Télécharger PIX</a>
+            </div>
         </div>
     </section>
 </main>
 
 </body>
 </html>
-
