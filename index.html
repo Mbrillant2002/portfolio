@@ -54,6 +54,15 @@
         .btn-outline { border: 1px solid var(--blue); color: var(--blue); }
         .btn:hover { opacity: 0.8; transform: translateY(-2px); }
 
+        /* Projets & Grille */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 20px; }
+        .project-card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center; text-decoration: none; color: var(--text); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+        .project-img-placeholder { background: #f0f3f5; border: 2px dashed #bdc3c7; height: 160px; border-radius: 5px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+        .project-img-placeholder i { font-size: 3rem; color: #e74c3c; } /* Icône PDF rouge */
+        .project-img-placeholder img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; }
+        .project-card h3 { margin: 0; font-size: 1.1rem; color: var(--side); }
+
         /* Veille */
         .veille-header { background: var(--side); color: white; padding: 25px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
@@ -70,6 +79,7 @@
         <li><a href="#accueil"><i class="fas fa-user"></i> Accueil</a></li>
         <li><a href="#sisr"><i class="fas fa-network-wired"></i> Option SISR</a></li>
         <li><a href="#slam"><i class="fas fa-code"></i> Option SLAM</a></li>
+        <li><a href="#projets"><i class="fas fa-folder-open"></i> Mes Projets</a></li>
         <li><a href="#stages"><i class="fas fa-briefcase"></i> Mes Stages</a></li>
         <li><a href="#competences"><i class="fas fa-tools"></i> Compétences</a></li>
         <li><a href="#veille"><i class="fas fa-rss"></i> Veille Techno</a></li>
@@ -113,6 +123,60 @@
                 <li><strong>Bases de données :</strong> Modélisation de données (MCD/MLD) et manipulation via le langage SQL.</li>
                 <li><strong>Gestion de projet :</strong> Application des méthodes Agiles et utilisation d'outils de versioning (Git) pour le travail collaboratif.</li>
             </ul>
+        </div>
+    </section>
+
+    <section id="projets">
+        <h2>Mes Projets</h2>
+        
+        <div class="card" style="text-align: center; margin-bottom: 30px;">
+            <a href="tableau_synthese.pdf" target="_blank" class="btn btn-blue" style="font-size: 1.1rem; padding: 12px 25px;">
+                <i class="fas fa-table"></i> Tableau de synthèse
+            </a>
+        </div>
+
+        <div class="projects-grid">
+            <a href="projet_glpi.pdf" target="_blank" class="project-card">
+                <div class="project-img-placeholder">
+                    <i class="fas fa-file-pdf"></i>
+                    </div>
+                <h3>GLPI</h3>
+            </a>
+
+            <a href="projet_aunis.pdf" target="_blank" class="project-card">
+                <div class="project-img-placeholder">
+                    <i class="fas fa-file-pdf"></i>
+                    </div>
+                <h3>Aunis freeware</h3>
+            </a>
+
+            <a href="projet_veille.pdf" target="_blank" class="project-card">
+                <div class="project-img-placeholder">
+                    <i class="fas fa-file-pdf"></i>
+                    </div>
+                <h3>Veille informationnelle</h3>
+            </a>
+
+            <a href="projet_supervision.pdf" target="_blank" class="project-card">
+                <div class="project-img-placeholder">
+                    <i class="fas fa-file-pdf"></i>
+                    </div>
+                <h3>Supervision</h3>
+            </a>
+
+            <a href="projet_backup.pdf" target="_blank" class="project-card">
+                <div class="project-img-placeholder">
+                    <i class="fas fa-file-pdf"></i>
+                    </div>
+                <h3>Backup</h3>
+            </a>
+
+            <a href="projet_stage.pdf" target="_blank" class="project-card">
+                <div class="project-img-placeholder">
+                    <i class="fas fa-file-pdf"></i>
+                    </div>
+                <h3>Projet de stage</h3>
+            </a>
         </div>
     </section>
 
